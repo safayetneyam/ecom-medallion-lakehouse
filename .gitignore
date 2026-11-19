@@ -1,6 +1,6 @@
 # --- Raw / generated data: never commit (size + data-handling policy) ---
 data_out/
-*.csv
+# *.csv
 *.csv.gz
 *.parquet
 *.zip
