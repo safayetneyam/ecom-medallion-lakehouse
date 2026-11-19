@@ -1,9 +1,9 @@
 # --- Raw / generated data: never commit (size + data-handling policy) ---
 data_out/
-# *.csv
+*.csv
 *.csv.gz
 *.parquet
-*.zip
+# *.zip
 # Small, synthetic Gold exports for the Power BI fallback may be force-added explicitly:
 #   git add -f powerbi/exports/gold_*.csv
 !powerbi/exports/gold_*.csv
