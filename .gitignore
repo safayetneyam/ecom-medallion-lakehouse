@@ -1,0 +1,27 @@
+# --- Raw / generated data: never commit (size + data-handling policy) ---
+data_out/
+*.csv
+*.csv.gz
+*.parquet
+*.zip
+# Small, synthetic Gold exports for the Power BI fallback may be force-added explicitly:
+#   git add -f powerbi/exports/gold_*.csv
+!powerbi/exports/gold_*.csv
+
+# --- Secrets & credentials ---
+.env
+.env.*
+*.pem
+*.key
+*.p12
+.databrickscfg
+**/secrets/
+*token*
+*credential*
+
+# --- Python / tooling ---
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.DS_Store
