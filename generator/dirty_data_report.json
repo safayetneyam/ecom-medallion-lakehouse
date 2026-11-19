@@ -1,0 +1,319 @@
+{
+  "generated_at_utc": "2026-11-18T06:37:11Z",
+  "seed": 42,
+  "dataset_as_of": "2026-11-15T00:00:00",
+  "clean_order_date_range": [
+    "2025-01-01",
+    "2026-10-31"
+  ],
+  "files": {
+    "orders.csv": {
+      "data_rows": 1000000,
+      "bytes": 72428604,
+      "sha256": "4d7b7ffa9d81579b648e8a4755853feb3ddf816b8aa322566c306386d05379a8",
+      "physical_lines": 1000001
+    },
+    "transactions.csv": {
+      "data_rows": 1000000,
+      "bytes": 76459630,
+      "sha256": "43cb45ceab5294f065a4ef574e3a5176cfee0cae363e268112cfa88cd24be411",
+      "physical_lines": 1000001
+    }
+  },
+  "orders": {
+    "untouched_rows": 908000,
+    "anomaly_rows": 92000,
+    "inventory": [
+      {
+        "anomaly": "null_customer_id",
+        "field": "customer_id",
+        "rows": 8000,
+        "pct": 0.8,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "null_or_blank_order_status",
+        "field": "order_status",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "null_country",
+        "field": "country",
+        "rows": 3000,
+        "pct": 0.3,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "text_in_quantity",
+        "field": "quantity",
+        "rows": 6000,
+        "pct": 0.6,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "text_in_unit_price",
+        "field": "unit_price",
+        "rows": 6000,
+        "pct": 0.6,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "negative_quantity",
+        "field": "quantity",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "out_of_range_quantity",
+        "field": "quantity",
+        "rows": 3000,
+        "pct": 0.3,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "negative_unit_price",
+        "field": "unit_price",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "invalid_order_date",
+        "field": "order_date",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "future_order_date",
+        "field": "order_date",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "invalid_order_status",
+        "field": "order_status",
+        "rows": 3000,
+        "pct": 0.3,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "inconsistent_case_whitespace",
+        "field": "category/order_status/country",
+        "rows": 30000,
+        "pct": 3.0,
+        "expected_silver_outcome": "standardise & accept"
+      },
+      {
+        "anomaly": "exact_duplicate_row",
+        "field": "all columns",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "duplicate loser"
+      },
+      {
+        "anomaly": "duplicate_order_id_diff_content",
+        "field": "order_id",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "duplicate loser (one of the pair)"
+      }
+    ]
+  },
+  "transactions": {
+    "untouched_rows": 911000,
+    "anomaly_rows": 89000,
+    "inventory": [
+      {
+        "anomaly": "null_order_id",
+        "field": "order_id",
+        "rows": 3000,
+        "pct": 0.3,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "orphan_order_id",
+        "field": "order_id",
+        "rows": 10000,
+        "pct": 1.0,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "null_payment_method",
+        "field": "payment_method",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "null_amount",
+        "field": "amount",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "text_in_amount",
+        "field": "amount",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "negative_amount",
+        "field": "amount",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "out_of_range_amount",
+        "field": "amount",
+        "rows": 2000,
+        "pct": 0.2,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "unsupported_currency",
+        "field": "currency",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "invalid_txn_status",
+        "field": "txn_status",
+        "rows": 3000,
+        "pct": 0.3,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "invalid_txn_ts",
+        "field": "txn_ts",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "future_txn_ts",
+        "field": "txn_ts",
+        "rows": 4000,
+        "pct": 0.4,
+        "expected_silver_outcome": "quarantine"
+      },
+      {
+        "anomaly": "inconsistent_case_whitespace",
+        "field": "payment_method/currency/txn_status",
+        "rows": 30000,
+        "pct": 3.0,
+        "expected_silver_outcome": "standardise & accept"
+      },
+      {
+        "anomaly": "exact_duplicate_row",
+        "field": "all columns",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "duplicate loser"
+      },
+      {
+        "anomaly": "duplicate_txn_id_diff_content",
+        "field": "txn_id",
+        "rows": 5000,
+        "pct": 0.5,
+        "expected_silver_outcome": "duplicate loser (one of the pair)"
+      }
+    ]
+  },
+  "transaction_patterns_per_order": {
+    "none": 142224,
+    "single": 676746,
+    "single_failed": 29433,
+    "single_pending": 9373,
+    "retry": 53629,
+    "split": 8948,
+    "refund": 79647
+  },
+  "reference_values": {
+    "allowed_categories": [
+      "Electronics",
+      "Fashion",
+      "Home & Kitchen",
+      "Beauty",
+      "Sports",
+      "Books",
+      "Toys",
+      "Grocery"
+    ],
+    "allowed_order_statuses": [
+      "delivered",
+      "shipped",
+      "processing",
+      "pending",
+      "cancelled",
+      "returned"
+    ],
+    "allowed_countries": [
+      "Bangladesh",
+      "India",
+      "United States",
+      "United Kingdom",
+      "Germany",
+      "France",
+      "Canada",
+      "Australia",
+      "Singapore",
+      "United Arab Emirates"
+    ],
+    "allowed_payment_methods": [
+      "credit_card",
+      "debit_card",
+      "mobile_wallet",
+      "paypal",
+      "bank_transfer",
+      "cash_on_delivery"
+    ],
+    "allowed_txn_statuses": [
+      "SUCCESS",
+      "FAILED",
+      "PENDING",
+      "REFUNDED"
+    ],
+    "supported_currencies": [
+      "USD",
+      "EUR",
+      "GBP",
+      "BDT",
+      "INR",
+      "CAD",
+      "AUD",
+      "SGD",
+      "AED"
+    ],
+    "quantity_range": [
+      1,
+      50
+    ],
+    "unit_price_range_usd": [
+      0.5,
+      10000.0
+    ],
+    "max_txn_amount": 500000.0,
+    "fx_to_usd": {
+      "USD": 1.0,
+      "EUR": 1.08,
+      "GBP": 1.27,
+      "BDT": 0.0084,
+      "INR": 0.012,
+      "CAD": 0.73,
+      "AUD": 0.66,
+      "SGD": 0.74,
+      "AED": 0.2723
+    },
+    "order_unit_price_currency": "USD"
+  },
+  "runtime_seconds": 12.1
+}
